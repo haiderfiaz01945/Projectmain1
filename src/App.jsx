@@ -5,7 +5,6 @@ import Productpage from './Pages/Productpage'
 import EditComponent from './Components/EditComponent';
 import OrderRecived from './Pages/OrderRecived';
 import Completedlist from './Pages/Completedlist';
-import Customerinfo from './Pages/customerinfo';
 import ScrollToTop from './Components/ScrollToTop';
   export default function App() {
   return (
