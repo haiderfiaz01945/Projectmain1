@@ -20,8 +20,7 @@ import ScrollToTop from './Components/ScrollToTop';
         <Route path="/edit/:id" element={<EditComponent />} />
         <Route path="/order" element={<OrderRecived />} />
         <Route path="/checked" element={<Completedlist />} />
-         <Route path="/info/:id" element={<Customerinfo />} />
-        </Routes>
+         </Routes>
         </div>
 
     </Router>
