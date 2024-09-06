@@ -6,10 +6,13 @@ import EditComponent from './Components/EditComponent';
 import OrderRecived from './Pages/OrderRecived';
 import Completedlist from './Pages/Completedlist';
 import Customerinfo from './Pages/customerinfo';
+import ScrollToTop from './Components/ScrollToTop';
   export default function App() {
   return (
     
     <Router>
+         <ScrollToTop />  
+
  <div className="mt-16">
         <Nav  /> 
       <Routes>
