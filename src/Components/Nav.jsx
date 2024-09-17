@@ -8,10 +8,15 @@ const Nav = () => {
   return (
     <nav className="fixed top-0 left-0 w-full bg-[#F9F5F6] py-4 px-6 shadow-md z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Brand Name */}
-        <Link onClick={() => setIsSidebarOpen(false)} to={'/'} className="text-2xl font-bold text-[#F2BED1]">
-          Brandname
-        </Link>
+          {/* Brand Name */}
+    <Link 
+      onClick={() => setIsSidebarOpen(false)} 
+      to={'/'} 
+      className="text-2xl font-bold text-[#F2BED1]"
+      style={{ fontFamily: "'Dancing Script', cursive" }} // Apply the Dancing Script font here
+    >
+      EnchantByReem
+    </Link>
 
         {/* Mobile Menu Button */}
         <div className="sm:hidden">

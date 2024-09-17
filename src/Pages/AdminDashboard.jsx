@@ -18,7 +18,7 @@ function AdminDashboard() {
         <ChevronDownIcon className="w-4 h-4 ml-1" />
       </Menu.Button>
       <Menu.Items className="absolute mt-2 w-40 bg-white shadow-lg rounded-md ring-1 ring-black ring-opacity-5 focus:outline-none z-10">
-        {["Necklaces", "Bracelets", "Charms", "Nails"].map((category) => (
+        {["Necklaces", "Bracelets", "EarRings", "Nails"].map((category) => (
           <Menu.Item key={category}>
             {({ active }) => (
               <button
