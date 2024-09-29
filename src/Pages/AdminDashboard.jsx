@@ -18,7 +18,7 @@ function AdminDashboard() {
         <ChevronDownIcon className="w-4 h-4 ml-1" />
       </Menu.Button>
       <Menu.Items className="absolute mt-2 w-40 bg-white shadow-lg rounded-md ring-1 ring-black ring-opacity-5 focus:outline-none z-10">
-        {["Necklaces", "Bracelets", "EarRings", "Nails"].map((category) => (
+        {["Necklaces", "Bracelets", "EarRings", "Nails" , "Bundles"].map((category) => (
           <Menu.Item key={category}>
             {({ active }) => (
               <button
@@ -115,17 +115,18 @@ function AdminDashboard() {
           >
             {/* Other form fields */}
             <div className="flex flex-col space-y-2">
-              <label className="text-sm font-medium text-[#333]">Name</label>
-              <input
-                type="text"
-                name="name"
-                value={item.name}
-                onChange={(event) => handleInputChange(index, event)}
-                className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
-                placeholder="Enter name"
-                required
-              />
-            </div>
+        <label className="text-sm font-medium text-[#333]">Name</label>
+        <input
+          type="text"
+          name="name"
+          value={item.name}
+          onChange={(event) => handleInputChange(index, event)}
+          className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
+          style={{ fontSize: '16px' }}  // Set font-size to 16px
+          placeholder="Enter name"
+          required
+        />
+      </div>
             <div className="flex flex-col space-y-2">
               <label className="text-sm font-medium text-[#333]">Category</label>
               <CategoryDropdown
@@ -141,6 +142,8 @@ function AdminDashboard() {
                 value={item.description}
                 onChange={(event) => handleInputChange(index, event)}
                 className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
+                style={{ fontSize: '16px' }}  // Set font-size to 16px
+
                 placeholder="Enter description"
                 required
               />
@@ -153,6 +156,8 @@ function AdminDashboard() {
                 value={item.quantity}
                 onChange={(event) => handleInputChange(index, event)}
                 className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
+                style={{ fontSize: '16px' }}  // Set font-size to 16px
+
                 placeholder="Enter Quantity"
                 required
               />
@@ -165,6 +170,8 @@ function AdminDashboard() {
                 value={item.price}
                 onChange={(event) => handleInputChange(index, event)}
                 className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
+                style={{ fontSize: '16px' }}  // Set font-size to 16px
+
                 placeholder="Enter price"
                 required
               />
@@ -178,6 +185,8 @@ function AdminDashboard() {
                 value={item.img}
                 onChange={(event) => handleInputChange(index, event)} // Correctly handle image input
                 className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
+                style={{ fontSize: '16px' }}  // Set font-size to 16px
+
                 placeholder="Enter image URL"
                 required
               />
@@ -190,6 +199,8 @@ function AdminDashboard() {
                 value={item.img2}
                 onChange={(event) => handleInputChange(index, event)} // Correctly handle image input
                 className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
+                style={{ fontSize: '16px' }}  // Set font-size to 16px
+
                 placeholder="Enter image URL"
                 required
               />
@@ -203,6 +214,8 @@ function AdminDashboard() {
                 value={item.img3}
                 onChange={(event) => handleInputChange(index, event)} // Correctly handle image input
                 className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
+                style={{ fontSize: '16px' }}  // Set font-size to 16px
+
                 placeholder="Enter image URL"
                 required
               />
@@ -216,6 +229,8 @@ function AdminDashboard() {
                 value={item.img4}
                 onChange={(event) => handleInputChange(index, event)} // Correctly handle image input
                 className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
+                style={{ fontSize: '16px' }}  // Set font-size to 16px
+
                 placeholder="Enter image URL"
                 required
               />

@@ -18,7 +18,9 @@ function EditComponent() {
   const [category, setCategory] = useState('');
   const [quantity, setQuantity] = useState('');
   const [img, setImg] = useState('');
-
+  const [img2, setImg2] = useState('');
+  const [img3, setImg3] = useState('');
+  const [img4, setImg4] = useState('');
   // Fetch product data
   useEffect(() => {
     if (status === 'idle') {
@@ -36,6 +38,9 @@ function EditComponent() {
         setPrice(selectedProduct.Price);
         setCategory(selectedProduct.Category);
         setImg(selectedProduct.img);
+        setImg2(selectedProduct.img2);
+        setImg3(selectedProduct.img3);
+        setImg4(selectedProduct.img4);
         setQuantity(selectedProduct.quantity);
       }
     }
@@ -44,7 +49,7 @@ function EditComponent() {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateProduct({ id: parseInt(id), title, description, price, quantity, category, img }))
+    dispatch(updateProduct({ id: parseInt(id), title, description, price, quantity, category, img , img2 , img3 , img4}))
       .then(() => {
         navigate('/Productpage'); // Navigate to the product page after updating
       })
@@ -59,7 +64,7 @@ function EditComponent() {
         <ChevronDownIcon className="w-4 h-4 ml-1" />
       </Menu.Button>
       <Menu.Items className="absolute mt-2 w-40 bg-white shadow-lg rounded-md ring-1 ring-black ring-opacity-5 focus:outline-none z-10">
-        {["Necklaces", "Bracelets", "Charms", "Nails"].map((category) => (
+        {["Necklaces", "Bracelets", "Charms", "Nails" , "Bundles"].map((category) => (
           <Menu.Item key={category}>
             {({ active }) => (
               <button
@@ -178,7 +183,7 @@ function EditComponent() {
               />
           </div>
           <div className="mb-4">
-            <label htmlFor="img" className="block text-sm font-medium text-gray-700">Image URL</label>
+            <label htmlFor="img" className="block text-sm font-medium text-gray-700">Thumbnail URL</label>
             <input
               type="text"
               id="img"
@@ -188,7 +193,39 @@ function EditComponent() {
               required
             />
           </div>
-{/* //cc */}
+          <div className="mb-4">
+            <label htmlFor="img2" className="block text-sm font-medium text-gray-700">Image2 URL</label>
+            <input
+              type="text"
+              id="img2"
+              value={img2}
+              onChange={(e) => setImg(e.target.value)}
+              className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="img3" className="block text-sm font-medium text-gray-700">Image3 URL</label>
+            <input
+              type="text"
+              id="img3"
+              value={img3}
+              onChange={(e) => setImg(e.target.value)}
+              className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="img4" className="block text-sm font-medium text-gray-700">Image4 URL</label>
+            <input
+              type="text"
+              id="img4"
+              value={img4}
+              onChange={(e) => setImg(e.target.value)}
+              className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
+              required
+            />
+          </div>
           </div>  
 
           <button

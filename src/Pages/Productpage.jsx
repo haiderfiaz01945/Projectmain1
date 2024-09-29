@@ -6,17 +6,15 @@ import LoaderProduct from "../Components/LoaderProduct";
 import { toast, Bounce } from "react-toastify";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
- 
+
 const Productpage = () => {
   const dispatch = useDispatch();
   const { products, status, error } = useSelector((state) => state.admin);
 
- 
+  // Fetch the product list every time the component mounts
   useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchProductsData());
-    }
-  }, [dispatch, status]);
+    dispatch(fetchProductsData());
+  }, [dispatch]);
 
   // Handle removing a product
   const handleRemoveProduct = (id, title) => {
@@ -47,7 +45,7 @@ const Productpage = () => {
   if (status === 'failed') {
     return <div className="text-center py-16 text-red-500">Error: {error}</div>;
   }
-    
+
   return (
     <div className="py-16">
       <div
@@ -78,10 +76,10 @@ const Productpage = () => {
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
           All Products
         </h2>
-            <div className="mt-8 flex justify-between items-center">
-              <h3 className="text-lg font-bold">Total Cost</h3>
-              <p className="text-xl font-semibold text-[#8d67c2]">Rs:{totalCost }</p>
-            </div>
+        <div className="mt-8 flex justify-between items-center">
+          <h3 className="text-lg font-bold">Total Cost</h3>
+          <p className="text-xl font-semibold text-[#8d67c2]">Rs:{totalCost}</p>
+        </div>
 
         {/* Grid layout for products */}
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-2 lg:grid-cols-3 mt-1 xl:grid-cols-4 xl:gap-x-6">
@@ -90,12 +88,12 @@ const Productpage = () => {
               key={product.id}
               className="group bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out transform hover:shadow-lg hover:scale-105 flex flex-col"
             >
-               <div className="relative w-full overflow-hidden bg-[#F8E8EE] rounded-t-lg">
+              <div className="relative w-full overflow-hidden bg-[#F8E8EE] rounded-t-lg">
                 <img
                   alt={product.Description || 'Product Image'}
                   src={product.img || 'https://via.placeholder.com/150'}
                   className="w-full h-48 object-cover object-center"
-                  style={{ height: '200px' }}  // Ensure all images have the same height
+                  style={{ height: '200px' }} // Ensure all images have the same height
                 />
               </div>
               <div className="p-4 flex flex-col flex-grow items-start justify-between">
@@ -112,18 +110,15 @@ const Productpage = () => {
                 
                 <p>Subtotal: ${product.Price * (product.quantity || 1)}</p>
                 
-                <div className="mt-4 flex space-x-2"> {/* Adjusted flex container */}
-               
-                
-                <Link
+                <div className="mt-4 flex space-x-2">
+                  <Link
                     to={`/Edit/${product.id}`}
-                    className="flex items-center bg-blue-500  text-white font-medium py-2 px-2 rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300 ease-in-out text-sm sm:text-base"
+                    className="flex items-center bg-blue-500 text-white font-medium py-2 px-2 rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300 ease-in-out text-sm sm:text-base"
                     aria-label={`Edit ${product.Title}`}
                   >
                     Edit
-                    <ModeEditOutlinedIcon   fontSize="small"  /> {/* Add EditIcon here */}
+                    <ModeEditOutlinedIcon fontSize="small" />
                   </Link>
-
 
                   <button
                     onClick={() => handleRemoveProduct(product.id, product.Title)}
@@ -131,15 +126,13 @@ const Productpage = () => {
                     className="flex items-center bg-red-500 text-white font-medium py-2 px-1.5 rounded-md shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-300 ease-in-out text-sm sm:text-base"
                   >
                     Delete
-                    <DeleteOutlineOutlinedIcon  fontSize="small"  /> {/* Adjust icon size or margin if needed */}
+                    <DeleteOutlineOutlinedIcon fontSize="small" />
                   </button>
                 </div>
-
               </div>
-            </div>  
+            </div>
           ))}
         </div>
-
       </div>
     </div>
   );
