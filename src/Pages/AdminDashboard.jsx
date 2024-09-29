@@ -7,7 +7,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 function AdminDashboard() {
   // Initialize state with all fields, ensuring they are not undefined
-  const [items, setItems] = useState([{ name: '', description: '', category: '', quantity: '', price: '', img: '' }]);
+  const [items, setItems] = useState([{ name: '', description: '', category: '', quantity: '', price: '', img: '' , img2:'' , img3:'' , img4:''}]);
   const dispatch = useDispatch();
 
   // Dropdown component for selecting category
@@ -48,31 +48,34 @@ function AdminDashboard() {
   };
 
   const handleAddRow = () => {
-    setItems([...items, { name: '', description: '', category: '', quantity: '', price: '', img: '' }]);
+    setItems([...items, { name: '', description: '', category: '', quantity: '', price: '', img: '' , img2: '', img3:'' , img4:'' }]);
   };
 
   const handleRemoveRow = (index) => {
     setItems(items.filter((_, i) => i !== index));
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
-
+  
     console.log('dash: ', items);
     // Dispatch each item in the array to add to the database
     items.forEach(item => {
-      const { name, description, category, quantity, price, img } = item;
+      const { name, description, category, quantity, price, img, img2, img3, img4 } = item;
       dispatch(addProducts({
         title: name,
         description: description || 'Default description',
         price: parseInt(price),
         category: category || 'Default category',
         quantity: parseInt(quantity) || 1, // Ensure quantity is a number
-        img: img || `https://placehold.co/600x400?text=${category}`
+        img: img || `https://placehold.co/600x400?text=${category}`,
+        img2: img2 || `https://placehold.co/600x400?text=${category}`,
+        img3: img3 || `https://placehold.co/600x400?text=${category}`,
+        img4: img4 || `https://placehold.co/600x400?text=${category}` // Corrected for img4
       }));
     });
-    setItems([{ name: '', description: '', category: '', quantity: '', price: '', img: '' }]);
+    setItems([{ name: '', description: '', category: '', quantity: '', price: '', img: '', img2: '', img3: '', img4: '' }]);
   };
+  
 
   return (
     <div className="p-6 ">
@@ -166,6 +169,7 @@ function AdminDashboard() {
                 required
               />
             </div>
+            
             <div className="flex flex-col space-y-2">
               <label className="text-sm font-medium text-[#333]">Image URL</label>
               <input
@@ -178,6 +182,46 @@ function AdminDashboard() {
                 required
               />
             </div>
+            <div className="flex flex-col space-y-2">
+              <label className="text-sm font-medium text-[#333]">Image2 URL</label>
+              <input
+                type="text"
+                name="img2"
+                value={item.img2}
+                onChange={(event) => handleInputChange(index, event)} // Correctly handle image input
+                className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
+                placeholder="Enter image URL"
+                required
+              />
+            </div>
+
+            <div className="flex flex-col space-y-2">
+              <label className="text-sm font-medium text-[#333]">Image3 URL</label>
+              <input
+                type="text"
+                name="img3"
+                value={item.img3}
+                onChange={(event) => handleInputChange(index, event)} // Correctly handle image input
+                className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
+                placeholder="Enter image URL"
+                required
+              />
+            </div>
+
+            <div className="flex flex-col space-y-2">
+              <label className="text-sm font-medium text-[#333]">Image4 URL</label>
+              <input
+                type="text"
+                name="img4"
+                value={item.img4}
+                onChange={(event) => handleInputChange(index, event)} // Correctly handle image input
+                className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
+                placeholder="Enter image URL"
+                required
+              />
+            </div>
+
+
             <button
               type="button"
               onClick={() => handleRemoveRow(index)}

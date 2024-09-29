@@ -29,10 +29,10 @@ export const fetchProductsData = createAsyncThunk(
 export const addProducts = createAsyncThunk(
   "admin/addProducts",
   // console.log('in data base: ',data),
-  async ({ title, description, price, category , img  , quantity }) => {
+  async ({ title, description, price, category , img  , quantity , img2 , img3 , img4}) => {
     const { data, error } = await supabase
       .from('Products')
-      .insert([{ Title: title, Description: description, Price: price, Category: category ,   img: img , quantity: quantity ,}]);
+      .insert([{ Title: title, Description: description, Price: price, Category: category ,   img: img , quantity: quantity , img2:img2 , img3:img3  , img4: img4 }]);
     
     if (error) {
       throw new Error(error.message);
@@ -147,10 +147,7 @@ const AdminSlice = createSlice({
   state.status='failed';
   state.products =  action.error.message;
  })
-
-
  
-
 
     }
 
