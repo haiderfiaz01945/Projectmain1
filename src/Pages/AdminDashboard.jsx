@@ -185,15 +185,17 @@ function AdminDashboard() {
               Name
             </motion.label>
             <motion.input
-              type="text"
-              name="name"
-              value={item.name}
-              onChange={(event) => handleInputChange(index, event)}
-              className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
-              placeholder="Enter name"
-              required
-              whileFocus={{ scale: 1.05 }}
-            />
+  type="text"
+  name="name"
+  value={item.name}
+  onChange={(event) => handleInputChange(index, event)}
+  className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
+  placeholder="Enter name"
+  required
+  style={{ fontSize: '16px' }} // Ensures no zooming on mobile
+  whileFocus={{ scale: 1.05 }}
+/>
+
           </div>
 
           {/* Category Dropdown */}
@@ -220,6 +222,8 @@ function AdminDashboard() {
               className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
               placeholder="Enter description"
               required
+              style={{ fontSize: '16px' }} // Ensures no zooming on mobile
+
               whileFocus={{ scale: 1.05 }}
             />
           </motion.div>
@@ -239,6 +243,7 @@ function AdminDashboard() {
               className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
               placeholder="Enter quantity"
               required
+              style={{ fontSize: '16px' }} // Ensures no zooming on mobile
               whileFocus={{ scale: 1.05 }}
             />
           </motion.div>
@@ -259,6 +264,8 @@ function AdminDashboard() {
               className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
               placeholder="Enter price"
               required
+              style={{ fontSize: '16px' }} // Ensures no zooming on mobile
+
               whileFocus={{ scale: 1.05 }}
             />
           </motion.div>
@@ -278,6 +285,8 @@ function AdminDashboard() {
               className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
               placeholder="Enter image URL"
               required
+              style={{ fontSize: '16px' }} // Ensures no zooming on mobile
+
               whileFocus={{ scale: 1.05 }}
             />
           </motion.div>
@@ -298,6 +307,8 @@ function AdminDashboard() {
               className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
               placeholder="Enter image URL"
               required
+              style={{ fontSize: '16px' }} // Ensures no zooming on mobile
+
               whileFocus={{ scale: 1.05 }}
             />
           </motion.div>
@@ -314,6 +325,7 @@ function AdminDashboard() {
               onChange={(event) => handleInputChange(index, event)}
               className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
               placeholder="Enter image URL"
+              style={{ fontSize: '16px' }} // Ensures no zooming on mobile
                whileFocus={{ scale: 1.05 }}
             />
           </motion.div>
@@ -331,6 +343,7 @@ function AdminDashboard() {
               className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
               placeholder="Enter image URL"
               required
+              style={{ fontSize: '16px' }} // Ensures no zooming on mobile
               whileFocus={{ scale: 1.05 }}
             />
           </motion.div>
