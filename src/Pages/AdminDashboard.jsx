@@ -193,7 +193,8 @@ function AdminDashboard() {
   placeholder="Enter name"
   required
   style={{ fontSize: '16px' }} // Ensures no zooming on mobile
- />
+  whileFocus={{ scale: 1.05 }}
+/>
 
           </div>
 
