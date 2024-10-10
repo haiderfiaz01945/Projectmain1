@@ -23,24 +23,40 @@ export const fetchProductsData = createAsyncThunk(
     return data; 
   }
 );
-
-
 // Async thunk to add products to the database
 export const addProducts = createAsyncThunk(
   "admin/addProducts",
-  // console.log('in data base: ',data),
-  async ({ title, description, price, category , img  , quantity , img2 , img3 , img4}) => {
-    const { data, error } = await supabase
-      .from('Products')
-      .insert([{ Title: title, Description: description, Price: price, Category: category ,   img: img , quantity: quantity , img2:img2 , img3:img3  , img4: img4 }]);
-    
-    if (error) {
-      throw new Error(error.message);
-    }
+  async ({ title, description, price, category, img, quantity, img2, img3, img4 }) => {
+    try {
+      const { data, error } = await supabase
+        .from('Products')
+        .insert([{
+          Title: title,
+          Description: description,
+          Price: price,
+          Category: category,
+          img: img,
+          quantity: quantity,
+          img2: img2,
+          img3: img3,
+          img4: img4
+        }])
+        .select('*');  // Request to return the inserted data
 
-    return data;
+      if (error) {
+        console.error("Error adding product:", error.message);
+        throw new Error(error.message);
+      }
+
+      console.log("Product added successfully:", data); // Should log the inserted product data now
+ 
+      return data;  // Return the inserted product data
+    } catch (err) {
+      throw new Error(`Failed to add product: ${err.message}`);
+    }
   }
 );
+
  
 
 // Remove Products from my list 

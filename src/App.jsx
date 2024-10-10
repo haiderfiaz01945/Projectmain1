@@ -6,6 +6,7 @@ import EditComponent from './Components/EditComponent';
 import OrderRecived from './Pages/OrderRecived';
 import Completedlist from './Pages/Completedlist';
 import ScrollToTop from './Components/ScrollToTop';
+import Test1 from './Test1';
   export default function App() {
   return (
     
@@ -20,6 +21,7 @@ import ScrollToTop from './Components/ScrollToTop';
         <Route path="/edit/:id" element={<EditComponent />} />
         <Route path="/order" element={<OrderRecived />} />
         <Route path="/checked" element={<Completedlist />} />
+        <Route path="/test" element={<Test1 />} />
          </Routes>
         </div>
 

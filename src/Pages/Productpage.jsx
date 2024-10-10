@@ -74,7 +74,7 @@ const Productpage = () => {
 
       <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
-          All Products
+          Product Inventory
         </h2>
         <div className="mt-8 flex justify-between items-center">
           <h3 className="text-lg font-bold">Total Cost</h3>
@@ -85,7 +85,7 @@ const Productpage = () => {
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-2 lg:grid-cols-3 mt-1 xl:grid-cols-4 xl:gap-x-6">
           {products.map((product) => (
             <div
-              key={product.id}
+              key={product.id}   
               className="group bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out transform hover:shadow-lg hover:scale-105 flex flex-col"
             >
               <div className="relative w-full overflow-hidden bg-[#F8E8EE] rounded-t-lg">

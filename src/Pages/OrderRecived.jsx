@@ -17,6 +17,10 @@ const OrderRecived = () => {
       dispatch(fetchOrderData());
     }
   }, [dispatch, status]);
+  const scrollAnimation = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
 
   const handleCompletedOrder = (id) => {
     dispatch(markAsCompleted(id))
