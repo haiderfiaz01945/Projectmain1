@@ -5,6 +5,7 @@ import { fetchProductsData, updateProduct } from '../Redux/AdminSlices';
 import { Menu } from '@headlessui/react';
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import CloudDoneOutlinedIcon from '@mui/icons-material/CloudDoneOutlined';
+import { motion } from 'framer-motion';
 
 function EditComponent() {
   const { id } = useParams();
@@ -21,6 +22,47 @@ function EditComponent() {
   const [img2, setImg2] = useState('');
   const [img3, setImg3] = useState('');
   const [img4, setImg4] = useState('');
+
+
+  
+  const dropdownVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.95,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 200,
+        damping: 20,
+        delayChildren: 0.2,
+        staggerChildren: 0.2, // Slows down the stagger between items
+      },
+    },
+  };
+  
+  // Variants for the individual items
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: -20,
+      backgroundColor: '#f3d1ca',
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      backgroundColor: "#fdf9f9", // Background reveal animation
+      transition: {
+        duration: 0.6, // Slows down the reveal animation for each item
+      },
+    },
+  };
+  
+
+
+  
   // Fetch product data
   useEffect(() => {
     if (status === 'idle') {
@@ -56,29 +98,46 @@ function EditComponent() {
       .catch((error) => console.error('Failed to save product: ', error));
   };
 
-  // Dropdown component for selecting category
-  const CategoryDropdown = ({ selectedCategory, onSelectCategory }) => (
-    <Menu as="div" className="relative">
-      <Menu.Button className="text-[#F2BED1] hover:text-[#F8E8EE] font-medium flex items-center">
-        {selectedCategory || "Select Category"}
-        <ChevronDownIcon className="w-4 h-4 ml-1" />
-      </Menu.Button>
-      <Menu.Items className="absolute mt-2 w-40 bg-white shadow-lg rounded-md ring-1 ring-black ring-opacity-5 focus:outline-none z-10">
-        {["Necklaces", "Bracelets", "Charms", "Nails" , "Bundles"].map((category) => (
-          <Menu.Item key={category}>
-            {({ active }) => (
-              <button
-                onClick={() => onSelectCategory(category)}
-                className={`block px-4 py-2 text-sm ${active ? "bg-[#F8E8EE]" : ""} text-[#F2BED1] w-full text-left`}
-              >
-                {category}
-              </button>
-            )}
-          </Menu.Item>
-        ))}
-      </Menu.Items>
-    </Menu>
-  );
+  const CategoryDropdown = ({ selectedCategory, onSelectCategory }) => {
+    return (
+      <Menu as="div" className="relative inline-block text-left">
+        {/* Dropdown Button */}
+        <Menu.Button className="text-[#F2BED1] hover:text-[#F8E8EE] font-medium flex items-center">
+          {selectedCategory || "Select Category"}
+          <ChevronDownIcon className="w-4 h-4 ml-1" />
+        </Menu.Button>
+  
+        {/* Animated Dropdown Menu */}
+        <Menu.Items
+          as={motion.div}
+          variants={dropdownVariants}
+          initial="hidden"
+          animate="visible"
+          className="absolute mt-2 w-40 shadow-lg rounded-md ring-1 ring-black ring-opacity-5 focus:outline-none z-10 origin-top-right"
+        >
+          {/* Dropdown Items */}
+          {["Necklaces", "Bracelets", "EarRings", "Nails","Rings", "Bundles"].map((category) => (
+            <Menu.Item key={category}>
+              {({ active }) => (
+                <motion.div
+                  variants={itemVariants}
+                  className=""
+                >
+                  <button
+                    onClick={() => onSelectCategory(category)}
+                    className={`block px-4 py-2 text-sm w-full text-left
+                              ${active ? "bg-[#F8E8EE] text-[#D87C9E]" : "text-[#F2BED1]   hover:text-[#D87C9E]"}`}
+                  >
+                    {category}
+                  </button>
+                </motion.div>
+              )}
+            </Menu.Item>
+          ))}
+        </Menu.Items>
+      </Menu>
+    );
+  };
 
   // Handle category selection from dropdown
   const handleSelectCategory = (selectedCategory) => {
@@ -127,10 +186,10 @@ function EditComponent() {
                  </h2> */}
 
         <form onSubmit={handleSubmit} className="space-y-6 p-4 sm:p-6 bg-[#F9F5F6] rounded-lg shadow-md">
-       <div          
+       <motion.div          
         key={products.index}
-       className="bg-white p-4 rounded-lg shadow-sm border border-[#F2BED1] space-y-4 transition-shadow hover:shadow-md"
-       > 
+        className="bg-white p-4 rounded-lg shadow-sm border border-[#F2BED1] space-y-4"
+        whileHover="hover"       > 
 
 
 
@@ -226,7 +285,7 @@ function EditComponent() {
               required
             />
           </div>
-          </div>  
+          </motion.div>  
 
           <button
             type="submit"

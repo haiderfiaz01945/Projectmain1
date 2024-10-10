@@ -269,11 +269,64 @@ function AdminDashboard() {
              initial={{ opacity: 0 }}
              animate={{ opacity: 1, transition: { duration: 0.5, delay: 0.1 } }}
             
-            className="text-sm font-medium text-[#333]">Image URL</motion.label>
+            className="text-sm font-medium text-[#333]">Thumdnail URL</motion.label>
             <motion.input
               type="text"
               name="img"
               value={item.img}
+              onChange={(event) => handleInputChange(index, event)}
+              className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
+              placeholder="Enter image URL"
+              required
+              whileFocus={{ scale: 1.05 }}
+            />
+          </motion.div>
+
+
+
+          <motion.div className="flex flex-col space-y-2">
+            <motion.label 
+             initial={{ opacity: 0 }}
+             animate={{ opacity: 1, transition: { duration: 0.5, delay: 0.1 } }}
+            
+            className="text-sm font-medium text-[#333]">Img1 URL</motion.label>
+            <motion.input
+              type="text"
+              name="img2"
+              value={item.img2}
+              onChange={(event) => handleInputChange(index, event)}
+              className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
+              placeholder="Enter image URL"
+              required
+              whileFocus={{ scale: 1.05 }}
+            />
+          </motion.div>
+          <motion.div className="flex flex-col space-y-2">
+            <motion.label 
+             initial={{ opacity: 0 }}
+             animate={{ opacity: 1, transition: { duration: 0.5, delay: 0.1 } }}
+            
+            className="text-sm font-medium text-[#333]">Img2 URL</motion.label>
+            <motion.input
+              type="text"
+              name="img3"
+              value={item.img3}
+              onChange={(event) => handleInputChange(index, event)}
+              className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
+              placeholder="Enter image URL"
+               whileFocus={{ scale: 1.05 }}
+            />
+          </motion.div>
+          <motion.div className="flex flex-col space-y-2">
+            <motion.label 
+             initial={{ opacity: 0 }}
+             animate={{ opacity: 1, transition: { duration: 0.5, delay: 0.1 } }}
+            
+            className="text-sm font-medium text-[#333]">Img3 URL</motion.label>
+            <motion.input
+              type="text"
+              name="img4"
+              value={item.img4}
               onChange={(event) => handleInputChange(index, event)}
               className="w-full border border-[#F2BED1] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#FDCEDF] text-sm"
               placeholder="Enter image URL"
