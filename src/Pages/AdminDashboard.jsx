@@ -182,7 +182,7 @@ function AdminDashboard() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1, transition: { duration: 0.5, delay: 0.1 } }}
             >
-              Name
+              Namee
             </motion.label>
             <motion.input
   type="text"
@@ -193,8 +193,7 @@ function AdminDashboard() {
   placeholder="Enter name"
   required
   style={{ fontSize: '16px' }} // Ensures no zooming on mobile
-  whileFocus={{ scale: 1.05 }}
-/>
+ />
 
           </div>
 
